@@ -10,6 +10,8 @@ formats and codecs. It is **highly** optimized for performance. It implements ar
 - H.264 CABAC decoder
 - More upcoming
 
+[ArithmeticCoding on NuGet](https://www.nuget.org/packages/ArithmeticCoding)
+
 It can do all of this in fully managed .NET - it does not rely on native dependencies, everything
 is written in C# code. Zero P/Invoke.
 
