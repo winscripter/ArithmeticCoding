@@ -1774,8 +1774,8 @@ namespace ArithmeticCoding.H264
             else baseCase = 0;
 
             if (nonMBAFF) return baseCase;
-            else if (!isFieldMacroblock && isFrameMacroblock) return baseCase * 2;
-            else if (!isFrameMacroblock && isFieldMacroblock) return baseCase * 3;
+            else if (!isFieldMacroblock && isFrameMacroblock) return baseCase + 6;
+            else if (!isFrameMacroblock && isFieldMacroblock) return baseCase + 12;
             else return 0;
         }
 
