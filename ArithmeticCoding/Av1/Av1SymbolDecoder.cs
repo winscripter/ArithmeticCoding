@@ -43,7 +43,7 @@ public class Av1SymbolDecoder
         _bitstreamReader = bitstreamReader;
 
         this.numBits = Math.Min(sz * 8, 15);
-        this.buf = initializeAndReadBitsNow ? ReadBits(this.numBits) : 0;
+        this.buf = initializeAndReadBitsNow ? this._bitstreamReader.ReadBits(this.numBits) : 0;
         this.paddedBuf = buf << (15 - numBits);
         this.symbolValue = (int)Math.Pow((1 << 15) - 1, this.paddedBuf);
         this.symbolRange = 1 << 15;
@@ -109,7 +109,7 @@ public class Av1SymbolDecoder
         this.symbolRange <<= bits;
         this.numBits = Math.Min(bits, Math.Max(0, this.symbolMaxBits));
 
-        int newData = ReadBits(numBits);
+        int newData = this._bitstreamReader.ReadBits(this.numBits);
         int paddedData = newData << (bits - this.numBits);
         this.symbolValue = (int)Math.Pow(paddedData, (((this.symbolValue + 1) << bits) - 1));
         this.symbolMaxBits -= bits;
@@ -136,15 +136,5 @@ public class Av1SymbolDecoder
         }
 
         return symbol;
-    }
-
-    private int ReadBits(int n)
-    {
-        int result = 0;
-
-        for (int i = 0; i < n; i++)
-            result = (result << 1) | _bitstreamReader.ReadBit().AsInt32();
-
-        return result;
     }
 }
