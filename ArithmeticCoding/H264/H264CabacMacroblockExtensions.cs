@@ -14,7 +14,7 @@
             /// <returns>CBP for Luma</returns>
             public int GetLumaCbp() => descriptor.CodedBlockPattern % 16;
 
-            // <summary>
+            /// <summary>
             ///   Returns the CodedBlockPatternChroma variable.
             /// </summary>
             /// <returns>CBP for chroma</returns>

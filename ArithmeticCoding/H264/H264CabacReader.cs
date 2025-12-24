@@ -1546,7 +1546,6 @@ namespace ArithmeticCoding.H264
         /// <summary>
         ///   Decodes binarization for coeff_abs_level_minus1.
         /// </summary>
-        /// <param name="ctxIdx">The context index..</param>
         /// <returns>The resulting binarization for the MVD syntax element.</returns>
         private int DecodeCoeffAbsLevelMinus1Binarization()
         {
