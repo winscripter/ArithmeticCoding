@@ -7,7 +7,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
     <AssemblyTitle>Arithmetic Coding for .NET</AssemblyTitle>
-    <AssemblyVersion>1.0.2</AssemblyVersion>
+    <AssemblyVersion>1.0.3</AssemblyVersion>
     <Company>winscripter</Company>
     <Copyright>Copyright (c) 2023-2025, winscripter</Copyright>
     <LangVersion>14</LangVersion>
@@ -22,7 +22,7 @@
     <PackageTags>h264;h.264;cabac;entropy coding;entropy;arithmetic;arithmetic coding;av1;av1 symbol;av1 decoder;av1 symbol decoder;h.264 decoder;h264 decoder;h264 entropy;h.264 entropy;h263;h.263;h263 arithmetic;h.263 arithmetic;syntax based arithmetic;arithmetic decoder;arithmetic decoding;arithmetic encoder;arithmetic encoding;h263 sac;h.263 sac;h263 sac decoder;h.263 sac decoder;h263 sac encoder; h.263 sac encoder</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
