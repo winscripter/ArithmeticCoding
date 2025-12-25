@@ -3,7 +3,9 @@
 namespace ArithmeticCoding.H264
 {
     /// <summary>
-    ///   Includes Coded Block Flags for residuals.
+    ///   Includes Coded Block Flags for residuals. For example, if <see cref="Intra16x16DCLevel"/>
+    ///   is <see langword="true"/>, the <c>coded_block_flag</c> for Intra16x16DCLevel transform coefficient
+    ///   level block is equal to 1.
     /// </summary>
     public unsafe struct H264CabacMacroblockResidualCodedBlockFlags
     {
