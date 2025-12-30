@@ -843,7 +843,7 @@ namespace ArithmeticCoding.H264
 
             for (int i = 0; i < 2; i++)
             {
-                bool bin = ReadDecision(ref _contextVariables[73 + GetIncrementalContextForCbp(73, binIdx, bs)]);
+                bool bin = ReadDecision(ref _contextVariables[77 + GetIncrementalContextForCbp(77, binIdx, bs)]);
                 bs.AppendBit(bin);
                 binIdx++;
 
@@ -2059,7 +2059,7 @@ namespace ArithmeticCoding.H264
                 }
                 else if (ctxBlockCat == 9)
                 {
-                    _macroblockProvider.DeriveNeighboring8x8LumaBlocksWithChromaArrayType3(
+                    _macroblockProvider.DeriveNeighboring8x8ChromaBlocksWithChromaArrayType3(
                         _macroblockProvider.CurrMbAddr,
                         options.Luma8x8BlkIdx,
                         out H264CabacAddressAndBlockIndices addrA,

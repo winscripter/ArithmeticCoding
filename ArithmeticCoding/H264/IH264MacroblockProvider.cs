@@ -29,11 +29,6 @@
             int blkIdx,
             out H264CabacAddressAndBlockIndices a,
             out H264CabacAddressAndBlockIndices b);
-        void DeriveNeighboring8x8LumaBlocksWithChromaArrayType3(
-            int address,
-            int blkIdx,
-            out H264CabacAddressAndBlockIndices a,
-            out H264CabacAddressAndBlockIndices b);
         void DeriveNeighboring8x8ChromaBlocksWithChromaArrayType3(
             int address,
             int blkIdx,

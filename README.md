@@ -1,6 +1,6 @@
 # Arithmetic Coding for .NET
 
-<img align="right" src="media/Logo/logo.png" width="128" height="128">
+<img align="right" src="https://github.com/winscripter/ArithmeticCoding/blob/master/media/Logo/logo.png?raw=true" width="128" height="128">
 
 ArithmeticCoding is a tiny, high-performance, zero allocation library for .NET that simplifies implementation of arithmetically coded file
 formats and codecs. It is **highly** optimized for performance. It implements arithmetic decoding/encoding for different file formats and codecs, as listed below.
@@ -33,7 +33,14 @@ selecting "Manage NuGet Packages...", and searching for "ArithmeticCoding". Choo
 Install it.
 
 # H.264
-Here is an example of using the H.264 CABAC decoder:
+Here is an example of using the H.264 CABAC decoder. You'll need to implement `IH264MacroblockProvider`; see
+[Implementing IH264MacroblockProvider](https://github.com/winscripter/ArithmeticCoding/blob/master/Docs/IH264MacroblockProvider-Implementation.md).
+You should also implement `IBitstreamReader`, see
+[Implementing IBitstreamReader](https://github.com/winscripter/ArithmeticCoding/blob/master/Docs/IBitstreamReader-Implementation.md). The slice
+type can be derived from the `slice_type` syntax element from the Slice Header (see clause 7.4.3 in the H.264 spec; table 7-6). The slice QP
+is defined with the `QPY` variable, which is specified in around at the bottom of clause 7.4.5 in the H.264 spec. Finally, `codIOffset`
+is read once during CABAC initialization right before reading the first syntax element, or, after all the `cabac_alignment_one_bit` bits.
+
 ```cs
 using ArithmeticCoding;
 using ArithmeticCoding.H264;
@@ -74,11 +81,11 @@ decode method. If there aren't any, then you can just call the method directly.
 
 Example with mvd_lX (requires mbPartIdx, subMbPartIdx):
 
-![mvd_l0 XML Documentation](media/MvdXMLDocumentation.png)
+![mvd_l0 XML Documentation](https://github.com/winscripter/ArithmeticCoding/blob/master/media/MvdXMLDocumentation.png?raw=true)
 
 Example with mb_skip_flag (no prior setup required):
 
-![mb_skip_flag XML Documentation](media/SkipFlagXMLDocumentation.png)
+![mb_skip_flag XML Documentation](https://github.com/winscripter/ArithmeticCoding/blob/master/media/SkipFlagXMLDocumentation.png?raw=trueg)
 
 # H.263
 Import the namespace:
@@ -89,6 +96,7 @@ using ArithmeticCoding.H263;
 H.263 uses what's known as a Syntax-Based Arithmetic (SAC) coder. It relies on cumulative
 frequencies for decoding symbols. Before we get started, you'll need to implement the
 `IH263PscFifo` interface which implements a Picture Start Code (PSC) First-in First-out (FIFO).
+See [Implementing IH263PscFifo](https://github.com/winscripter/ArithmeticCoding/blob/master/Docs/IH263PscFifo-Implementation.md).
 
 ```cs
 IH263PscFifo pscFifo = ...; // <-- Implement
@@ -122,6 +130,8 @@ await sacEncoder.EncodeSymbolAsync(index, H263SyntaxBasedArithmeticModels.CbpY.T
 Currently, ArithmeticCoding includes an AV1 Symbol Decoder. For comprehensive AV1 entropy coding support,
 Symbol Encoding/CDF support may be introduced in future versions. For now, here's how to use the symbol
 decoder.
+
+`disable_cdf_update` is a syntax element. `sz` is the input parameter for the initialization process.
 
 ```cs
 using ArithmeticCoding.Av1;
